@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00000001000000010000000100000001 /* AffirmationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000002000000020000000200000002 /* AffirmationsApp.swift */; };
+		00000003000000030000000300000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000004000000040000000400000004 /* ContentView.swift */; };
+		00000005000000050000000500000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00000006000000060000000600000006 /* Assets.xcassets */; };
+		00000007000000070000000700000007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00000008000000080000000800000008 /* Preview Assets.xcassets */; };
+		00000009000000090000000900000009 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00000010000000100000001000000010 /* DataModel.xcdatamodeld */; };
+		00000011000000110000001100000011 /* Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000012000000120000001200000012 /* Affirmation.swift */; };
+		00000013000000130000001300000013 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000014000000140000001400000014 /* DataController.swift */; };
+		00000015000000150000001500000015 /* AffirmationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000016000000160000001600000016 /* AffirmationListView.swift */; };
+		00000017000000170000001700000017 /* AffirmationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000018000000180000001800000018 /* AffirmationDetailView.swift */; };
+		00000019000000190000001900000019 /* AddAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000020000000200000002000000020 /* AddAffirmationView.swift */; };
+		00000021000000210000002100000021 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000022000000220000002200000022 /* NotificationManager.swift */; };
+		00000023000000230000002300000023 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000024000000240000002400000024 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00000025000000250000002500000025 /* Daily Affirmations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daily Affirmations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00000002000000020000000200000002 /* AffirmationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsApp.swift; sourceTree = "<group>"; };
+		00000004000000040000000400000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		00000006000000060000000600000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00000008000000080000000800000008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00000019000000190000001900000026 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		00000012000000120000001200000012 /* Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmation.swift; sourceTree = "<group>"; };
+		00000014000000140000001400000014 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		00000016000000160000001600000016 /* AffirmationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationListView.swift; sourceTree = "<group>"; };
+		00000018000000180000001800000018 /* AffirmationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationDetailView.swift; sourceTree = "<group>"; };
+		00000020000000200000002000000020 /* AddAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAffirmationView.swift; sourceTree = "<group>"; };
+		00000022000000220000002200000022 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		00000024000000240000002400000024 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		00000027000000270000002700000027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00000028000000280000002800000028 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00000029000000290000002900000029 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00000025000000250000002500000025 /* Daily Affirmations.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00000030000000300000003000000030 /* Daily Affirmations */ = {
+			isa = PBXGroup;
+			children = (
+				00000027000000270000002700000027 /* Info.plist */,
+				00000002000000020000000200000002 /* AffirmationsApp.swift */,
+				00000004000000040000000400000004 /* ContentView.swift */,
+				00000031000000310000003100000031 /* Views */,
+				00000032000000320000003200000032 /* Model */,
+				00000033000000330000003300000033 /* Controllers */,
+				00000006000000060000000600000006 /* Assets.xcassets */,
+				00000034000000340000003400000034 /* Preview Content */,
+			);
+			path = "Daily Affirmations";
+			sourceTree = "<group>";
+		};
+		00000034000000340000003400000034 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				00000008000000080000000800000008 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00000031000000310000003100000031 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00000016000000160000001600000016 /* AffirmationListView.swift */,
+				00000018000000180000001800000018 /* AffirmationDetailView.swift */,
+				00000020000000200000002000000020 /* AddAffirmationView.swift */,
+				00000024000000240000002400000024 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00000032000000320000003200000032 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00000010000000100000001000000010 /* DataModel.xcdatamodeld */,
+				00000012000000120000001200000012 /* Affirmation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00000033000000330000003300000033 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00000014000000140000001400000014 /* DataController.swift */,
+				00000022000000220000002200000022 /* NotificationManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		00000035000000350000003500000035 = {
+			isa = PBXGroup;
+			children = (
+				00000030000000300000003000000030 /* Daily Affirmations */,
+				00000029000000290000002900000029 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00000036000000360000003600000036 /* Daily Affirmations */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00000037000000370000003700000037 /* Build configuration list for PBXNativeTarget "Daily Affirmations" */;
+			buildPhases = (
+				00000038000000380000003800000038 /* Sources */,
+				00000028000000280000002800000028 /* Frameworks */,
+				00000039000000390000003900000039 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Daily Affirmations";
+			productName = "Daily Affirmations";
+			productReference = 00000025000000250000002500000025 /* Daily Affirmations.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00000040000000400000004000000040 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					00000036000000360000003600000036 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 00000041000000410000004100000041 /* Build configuration list for PBXProject "Daily_Affirmations" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00000035000000350000003500000035;
+			productRefGroup = 00000029000000290000002900000029 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00000036000000360000003600000036 /* Daily Affirmations */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00000039000000390000003900000039 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000007000000070000000700000007 /* Preview Assets.xcassets in Resources */,
+				00000005000000050000000500000005 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00000038000000380000003800000038 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000009000000090000000900000009 /* DataModel.xcdatamodeld in Sources */,
+				00000013000000130000001300000013 /* DataController.swift in Sources */,
+				00000003000000030000000300000003 /* ContentView.swift in Sources */,
+				00000017000000170000001700000017 /* AffirmationDetailView.swift in Sources */,
+				00000019000000190000001900000019 /* AddAffirmationView.swift in Sources */,
+				00000023000000230000002300000023 /* SettingsView.swift in Sources */,
+				00000021000000210000002100000021 /* NotificationManager.swift in Sources */,
+				00000015000000150000001500000015 /* AffirmationListView.swift in Sources */,
+				00000001000000010000000100000001 /* AffirmationsApp.swift in Sources */,
+				00000011000000110000001100000011 /* Affirmation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		00000042000000420000004200000042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00000043000000430000004300000043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00000044000000440000004400000044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Daily Affirmations/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily Affirmations/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Affirmations;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Daily-Affirmations";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00000045000000450000004500000045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Daily Affirmations/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily Affirmations/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Affirmations;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Daily-Affirmations";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00000041000000410000004100000041 /* Build configuration list for PBXProject "Daily_Affirmations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000042000000420000004200000042 /* Debug */,
+				00000043000000430000004300000043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00000037000000370000003700000037 /* Build configuration list for PBXNativeTarget "Daily Affirmations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000044000000440000004400000044 /* Debug */,
+				00000045000000450000004500000045 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		00000010000000100000001000000010 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				00000019000000190000001900000026 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 00000019000000190000001900000026 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 00000040000000400000004000000040 /* Project object */;
+}
