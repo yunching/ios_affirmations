@@ -10,22 +10,38 @@ class DataController: ObservableObject {
     init() {
         container = NSPersistentContainer(name: "DataModel")
         
+        // Configure persistent store description to add better error handling
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Failed to retrieve a persistent store description.")
+        }
+        
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        
         container.loadPersistentStores { description, error in
             if let error = error {
                 print("Core Data failed to load: \(error.localizedDescription)")
+                print("Detailed error: \(error)")
+                
+                // Handle the error more gracefully in a production app
+                fatalError("Unresolved Core Data error: \(error)")
             }
             
-            self.fetchAffirmations()
-            self.fetchNotificationSettings()
+            print("Successfully loaded Core Data store: \(description.url?.absoluteString ?? "unknown")")
             
-            // Add sample data if no affirmations exist
-            if self.savedAffirmations.isEmpty {
-                self.addSampleAffirmations()
-            }
-            
-            // Initialize notification settings if not already set
-            if self.notificationSettings == nil {
-                self.initializeNotificationSettings()
+            DispatchQueue.main.async {
+                self.fetchAffirmations()
+                self.fetchNotificationSettings()
+                
+                // Add sample data if no affirmations exist
+                if self.savedAffirmations.isEmpty {
+                    self.addSampleAffirmations()
+                }
+                
+                // Initialize notification settings if not already set
+                if self.notificationSettings == nil {
+                    self.initializeNotificationSettings()
+                }
             }
         }
     }
