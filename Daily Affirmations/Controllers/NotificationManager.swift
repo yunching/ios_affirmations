@@ -5,6 +5,9 @@ import Combine
 class NotificationManager: ObservableObject {
     static let shared = NotificationManager()
     
+    // Maximum number of daily notifications allowed
+    static let maxDailyNotifications = 5
+    
     private init() {
         requestAuthorization()
     }
@@ -19,32 +22,37 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleNotifications(for affirmations: [AffirmationEntity], frequency: String, time: Date) {
+    func scheduleNotifications(for affirmations: [AffirmationEntity], frequency: String, times: [Date]) {
         // Remove any existing notifications
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         guard !affirmations.isEmpty else { return }
         
-        // Extract just the time components
-        let calendar = Calendar.current
-        let timeComponents = calendar.dateComponents([.hour, .minute], from: time)
-        
         // Create notifications for each affirmation based on frequency
         let shuffledAffirmations = affirmations.shuffled()
         
-        switch frequency {
-        case "daily":
-            scheduleDailyNotification(affirmation: shuffledAffirmations[0], at: timeComponents)
-        case "weekdays":
-            scheduleWeekdayNotifications(affirmations: shuffledAffirmations, at: timeComponents)
-        case "weekly":
-            scheduleWeeklyNotification(affirmation: shuffledAffirmations[0], at: timeComponents)
-        default:
-            break
+        // For each time, schedule appropriate notifications
+        for time in times {
+            // Extract just the time components
+            let calendar = Calendar.current
+            let timeComponents = calendar.dateComponents([.hour, .minute], from: time)
+            
+            switch frequency {
+            case "daily":
+                // Use a different affirmation for each time slot if possible
+                let index = min(times.firstIndex(of: time) ?? 0, shuffledAffirmations.count - 1)
+                scheduleDailyNotification(affirmation: shuffledAffirmations[index], at: timeComponents, timeIndex: times.firstIndex(of: time) ?? 0)
+            case "weekdays":
+                scheduleWeekdayNotifications(affirmations: shuffledAffirmations, at: timeComponents, timeIndex: times.firstIndex(of: time) ?? 0)
+            case "weekly":
+                scheduleWeeklyNotification(affirmation: shuffledAffirmations[0], at: timeComponents, timeIndex: times.firstIndex(of: time) ?? 0)
+            default:
+                break
+            }
         }
     }
     
-    private func scheduleDailyNotification(affirmation: AffirmationEntity, at time: DateComponents) {
+    private func scheduleDailyNotification(affirmation: AffirmationEntity, at time: DateComponents, timeIndex: Int) {
         guard let content = affirmation.content else { return }
 
         let notificationContent = UNMutableNotificationContent()
@@ -55,7 +63,7 @@ class NotificationManager: ObservableObject {
         let components = time
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "daily-affirmation-\(timeIndex)", content: notificationContent, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
@@ -64,7 +72,7 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    private func scheduleWeekdayNotifications(affirmations: [AffirmationEntity], at time: DateComponents) {
+    private func scheduleWeekdayNotifications(affirmations: [AffirmationEntity], at time: DateComponents, timeIndex: Int) {
         // Schedule for Monday through Friday (1-5)
         for weekday in 2...6 {
             let index = (weekday - 2) % affirmations.count
@@ -79,7 +87,7 @@ class NotificationManager: ObservableObject {
             components.weekday = weekday
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-            let request = UNNotificationRequest(identifier: "affirmation-\(weekday)", content: notificationContent, trigger: trigger)
+            let request = UNNotificationRequest(identifier: "affirmation-\(weekday)-\(timeIndex)", content: notificationContent, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request) { error in
                 if let error = error {
@@ -89,7 +97,7 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    private func scheduleWeeklyNotification(affirmation: AffirmationEntity, at time: DateComponents) {
+    private func scheduleWeeklyNotification(affirmation: AffirmationEntity, at time: DateComponents, timeIndex: Int) {
         guard let content = affirmation.content else { return }
         
         let notificationContent = UNMutableNotificationContent()
@@ -101,7 +109,7 @@ class NotificationManager: ObservableObject {
         components.weekday = 1  // Sunday
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: "weekly-affirmation", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "weekly-affirmation-\(timeIndex)", content: notificationContent, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {

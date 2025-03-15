@@ -6,6 +6,7 @@ class DataController: ObservableObject {
     
     @Published var savedAffirmations: [AffirmationEntity] = []
     @Published var notificationSettings: NotificationSettingEntity?
+    @Published var notificationTimes: [NotificationTimeEntity] = []
     
     init() {
         container = NSPersistentContainer(name: "DataModel")
@@ -32,6 +33,7 @@ class DataController: ObservableObject {
             DispatchQueue.main.async {
                 self.fetchAffirmations()
                 self.fetchNotificationSettings()
+                self.fetchNotificationTimes()
                 
                 // Add sample data if no affirmations exist
                 if self.savedAffirmations.isEmpty {
@@ -69,6 +71,18 @@ class DataController: ObservableObject {
         }
     }
     
+    func fetchNotificationTimes() {
+        let request = NSFetchRequest<NotificationTimeEntity>(entityName: "NotificationTimeEntity")
+        let sortByTime = NSSortDescriptor(keyPath: \NotificationTimeEntity.time, ascending: true)
+        request.sortDescriptors = [sortByTime]
+        
+        do {
+            notificationTimes = try container.viewContext.fetch(request)
+        } catch {
+            print("Error fetching notification times: \(error.localizedDescription)")
+        }
+    }
+    
     func addSampleAffirmations() {
         for affirmation in Affirmation.sampleAffirmations {
             let newAffirmation = AffirmationEntity(context: container.viewContext)
@@ -93,8 +107,14 @@ class DataController: ObservableObject {
         components.minute = 0
         settings.time = Calendar.current.date(from: components)
         
+        // Add default notification time entity
+        if let defaultTime = settings.time {
+            addNotificationTime(defaultTime, for: settings)
+        }
+        
         saveContext()
         notificationSettings = settings
+        fetchNotificationTimes()
     }
     
     func addAffirmation(content: String) {
@@ -132,6 +152,54 @@ class DataController: ObservableObject {
             
             saveContext()
         }
+    }
+    
+    func updateNotificationSettings(enabled: Bool, frequency: String, times: [Date]) {
+        if let settings = notificationSettings {
+            settings.enabled = enabled
+            settings.frequency = frequency
+            
+            // Keep the first time in the legacy 'time' field for backward compatibility
+            if let firstTime = times.first {
+                settings.time = firstTime
+            }
+            
+            // Clear existing notification times
+            if let existingTimes = settings.times as? Set<NotificationTimeEntity> {
+                for existingTime in existingTimes {
+                    container.viewContext.delete(existingTime)
+                }
+            }
+            
+            // Add new notification times
+            for time in times {
+                addNotificationTime(time, for: settings)
+            }
+            
+            saveContext()
+            fetchNotificationTimes()
+        }
+    }
+    
+    func addNotificationTime(_ time: Date, for settings: NotificationSettingEntity) {
+        let timeEntity = NotificationTimeEntity(context: container.viewContext)
+        timeEntity.id = UUID()
+        timeEntity.time = time
+        timeEntity.setting = settings
+    }
+    
+    func addNotificationTime(_ time: Date) {
+        if let settings = notificationSettings {
+            addNotificationTime(time, for: settings)
+            saveContext()
+            fetchNotificationTimes()
+        }
+    }
+    
+    func removeNotificationTime(_ timeEntity: NotificationTimeEntity) {
+        container.viewContext.delete(timeEntity)
+        saveContext()
+        fetchNotificationTimes()
     }
     
     func saveContext() {
